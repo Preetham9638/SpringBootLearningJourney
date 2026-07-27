@@ -1,5 +1,7 @@
 package com.preetham.hellospringboot.controller;
 import com.preetham.hellospringboot.service.RestaurantService;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,10 +28,7 @@ public class RestaurantController {
     public String orders() {
         return "Restaurant Orders";
     }
-    @GetMapping("/{id}")
-    public String getRestaurant(@PathVariable int id) {
-        return "Restaurant ID : " + id;
-    }
+   
     @GetMapping("/search")
     public String searchRestaurant(@RequestParam String city) {
         return "Searching restaurants in " + city;
@@ -65,5 +64,14 @@ public class RestaurantController {
     private final RestaurantService restaurantService;
     public RestaurantController(RestaurantService restaurantService) {
         this.restaurantService = restaurantService;
+    }
+    @GetMapping
+    public List<Restaurant> getAllRestaurants() {
+        return restaurantService.getAllRestaurants();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Restaurant> getRestaurantById(@PathVariable int id) {
+        return restaurantService.getRestaurantById(id);
     }
 }
