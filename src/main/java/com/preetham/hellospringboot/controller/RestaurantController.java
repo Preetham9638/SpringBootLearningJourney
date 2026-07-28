@@ -74,4 +74,8 @@ public class RestaurantController {
     public Optional<Restaurant> getRestaurantById(@PathVariable int id) {
         return restaurantService.getRestaurantById(id);
     }
+    @GetMapping("/city/{city}")
+    public List<Restaurant> getRestaurantByCity(@PathVariable String city) {
+        return restaurantService.getRestaurantByCity(city);
+    }
 }

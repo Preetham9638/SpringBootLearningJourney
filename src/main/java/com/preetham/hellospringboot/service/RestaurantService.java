@@ -39,5 +39,8 @@ public class RestaurantService {
 	    public Optional<Restaurant> getRestaurantById(int id) {
 	        return restaurantRepository.findById(id);
 	    }
+	    public List<Restaurant> getRestaurantByCity(String city) {
+	        return restaurantRepository.findByCity(city);
+	    }
     
 }
