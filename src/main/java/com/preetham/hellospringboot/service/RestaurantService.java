@@ -1,6 +1,10 @@
 package com.preetham.hellospringboot.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import java.util.List;
 import java.util.Optional;
 import com.preetham.hellospringboot.repository.RestaurantRepository;
@@ -41,6 +45,15 @@ public class RestaurantService {
 	    }
 	    public List<Restaurant> getRestaurantByCity(String city) {
 	        return restaurantRepository.findByCity(city);
+	    }
+	    public List<Restaurant> getRestaurantsSortedByRating() {
+	        return restaurantRepository.findAll(
+	                Sort.by("rating").descending()
+	        );
+	    }
+	    public Page<Restaurant> getRestaurantsByPage(int page) {
+	        Pageable pageable = PageRequest.of(page, 3);
+	        return restaurantRepository.findAll(pageable);
 	    }
     
 }

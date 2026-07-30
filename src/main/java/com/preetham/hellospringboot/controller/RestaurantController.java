@@ -1,5 +1,6 @@
 package com.preetham.hellospringboot.controller;
 import com.preetham.hellospringboot.service.RestaurantService;
+import org.springframework.data.domain.Page;
 import java.util.List;
 import java.util.Optional;
 
@@ -77,5 +78,14 @@ public class RestaurantController {
     @GetMapping("/city/{city}")
     public List<Restaurant> getRestaurantByCity(@PathVariable String city) {
         return restaurantService.getRestaurantByCity(city);
+    }
+    @GetMapping("/sort/rating")
+    public List<Restaurant> getRestaurantsSortedByRating() {
+        return restaurantService.getRestaurantsSortedByRating();
+    }
+    
+    @GetMapping("/page/{page}")
+    public Page<Restaurant> getRestaurantsByPage(@PathVariable int page) {
+        return restaurantService.getRestaurantsByPage(page);
     }
 }
