@@ -55,5 +55,11 @@ public class RestaurantService {
 	        Pageable pageable = PageRequest.of(page, 3);
 	        return restaurantRepository.findAll(pageable);
 	    }
+	    public List<Restaurant> getRestaurantByName(String name) {
+	        return restaurantRepository.findByName(name);
+	    }
+	    public List<Restaurant> searchRestaurantsByName(String keyword) {
+	        return restaurantRepository.findByNameContaining(keyword);
+	    }
     
 }

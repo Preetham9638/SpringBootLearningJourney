@@ -88,4 +88,13 @@ public class RestaurantController {
     public Page<Restaurant> getRestaurantsByPage(@PathVariable int page) {
         return restaurantService.getRestaurantsByPage(page);
     }
+    @GetMapping("/name/{name}")
+    public List<Restaurant> getRestaurantByName(@PathVariable String name) {
+        return restaurantService.getRestaurantByName(name);
+    }
+    @GetMapping("/search/{keyword}")
+    public List<Restaurant> searchRestaurantsByName(@PathVariable String keyword) {
+        return restaurantService.searchRestaurantsByName(keyword);
+    }
+    
 }
