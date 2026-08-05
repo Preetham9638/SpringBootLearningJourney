@@ -96,5 +96,46 @@ public class RestaurantController {
     public List<Restaurant> searchRestaurantsByName(@PathVariable String keyword) {
         return restaurantService.searchRestaurantsByName(keyword);
     }
-    
+
+    @GetMapping("/rating/{rating}")
+    public List<Restaurant> getRestaurantsByRating(@PathVariable double rating) {
+        return restaurantService.getRestaurantsByRating(rating);
+    }
+    @GetMapping("/city/{city}/rating/{rating}")
+    public List<Restaurant> getRestaurantsByCityAndRating(
+            @PathVariable String city,
+            @PathVariable double rating) {
+
+        return restaurantService.getRestaurantsByCityAndRating(city, rating);
+    }
+    @GetMapping("/city/{city}/name/{name}")
+    public List<Restaurant> getRestaurantsByCityOrName(
+            @PathVariable String city,
+            @PathVariable String name) {
+
+        return restaurantService.getRestaurantsByCityOrName(city, name);
+    }
+    @GetMapping("/rating/less/{rating}")
+    public List<Restaurant> getRestaurantsByRatingLessThan(@PathVariable double rating) {
+        return restaurantService.getRestaurantsByRatingLessThan(rating);
+    }
+    @GetMapping("/rating/between/{start}/{end}")
+    public List<Restaurant> getRestaurantsByRatingBetween(
+            @PathVariable double start,
+            @PathVariable double end) {
+
+        return restaurantService.getRestaurantsByRatingBetween(start, end);
+    }
+    @GetMapping("/name/starts/{prefix}")
+    public List<Restaurant> getRestaurantsStartingWith(
+            @PathVariable String prefix) {
+
+        return restaurantService.getRestaurantsStartingWith(prefix);
+    }
+    @GetMapping("/name/ends/{suffix}")
+    public List<Restaurant> getRestaurantsEndingWith(
+            @PathVariable String suffix) {
+
+        return restaurantService.getRestaurantsEndingWith(suffix);
+    }
 }

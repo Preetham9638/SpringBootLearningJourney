@@ -61,5 +61,26 @@ public class RestaurantService {
 	    public List<Restaurant> searchRestaurantsByName(String keyword) {
 	        return restaurantRepository.findByNameContaining(keyword);
 	    }
+	    public List<Restaurant> getRestaurantsByRating(double rating) {
+	        return restaurantRepository.findByRatingGreaterThan(rating);
+	    }
+	    public List<Restaurant> getRestaurantsByCityAndRating(String city, double rating) {
+	        return restaurantRepository.findByCityAndRatingGreaterThan(city, rating);
+	    }
+	    public List<Restaurant> getRestaurantsByCityOrName(String city, String name) {
+	        return restaurantRepository.findByCityOrName(city, name);
+	    }
+	    public List<Restaurant> getRestaurantsByRatingLessThan(double rating) {
+	        return restaurantRepository.findByRatingLessThan(rating);
+	    }
+	    public List<Restaurant> getRestaurantsByRatingBetween(double start, double end) {
+	        return restaurantRepository.findByRatingBetween(start, end);
+	    }
+	    public List<Restaurant> getRestaurantsStartingWith(String prefix) {
+	        return restaurantRepository.findByNameStartingWith(prefix);
+	    }
+	    public List<Restaurant> getRestaurantsEndingWith(String suffix) {
+	        return restaurantRepository.findByNameEndingWith(suffix);
+	    }
     
 }
