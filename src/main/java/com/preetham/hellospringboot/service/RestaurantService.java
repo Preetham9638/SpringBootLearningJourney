@@ -82,5 +82,8 @@ public class RestaurantService {
 	    public List<Restaurant> getRestaurantsEndingWith(String suffix) {
 	        return restaurantRepository.findByNameEndingWith(suffix);
 	    }
+	    public List<Restaurant> getAllRestaurantsCustom() {
+	        return restaurantRepository.getAllRestaurantsCustom();
+	    }
     
 }

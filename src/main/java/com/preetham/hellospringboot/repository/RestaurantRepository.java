@@ -1,5 +1,6 @@
 package com.preetham.hellospringboot.repository;
 import java.util.List;
+import org.springframework.data.jpa.repository.Query;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -17,5 +18,7 @@ public interface RestaurantRepository
 	List<Restaurant> findByRatingBetween(double start, double end);
 	List<Restaurant> findByNameStartingWith(String prefix);
 	List<Restaurant> findByNameEndingWith(String suffix);
+	@Query("SELECT r FROM Restaurant r")
+	List<Restaurant> getAllRestaurantsCustom();
 
 }

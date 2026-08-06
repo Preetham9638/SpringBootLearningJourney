@@ -138,4 +138,8 @@ public class RestaurantController {
 
         return restaurantService.getRestaurantsEndingWith(suffix);
     }
+    @GetMapping("/custom")
+    public List<Restaurant> getAllRestaurantsCustom() {
+        return restaurantService.getAllRestaurantsCustom();
+    }
 }
