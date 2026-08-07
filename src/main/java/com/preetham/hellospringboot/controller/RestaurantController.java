@@ -142,4 +142,15 @@ public class RestaurantController {
     public List<Restaurant> getAllRestaurantsCustom() {
         return restaurantService.getAllRestaurantsCustom();
     }
+    @GetMapping("/custom/city/{city}")
+    public List<Restaurant> getRestaurantByCityCustom(@PathVariable String city) {
+        return restaurantService.getRestaurantByCityCustom(city);
+    }
+    @GetMapping("/custom/{city}/{rating}")
+    public List<Restaurant> getRestaurantByCityAndRatingCustom(
+            @PathVariable String city,
+            @PathVariable double rating) {
+
+        return restaurantService.getRestaurantByCityAndRatingCustom(city, rating);
+    }
 }

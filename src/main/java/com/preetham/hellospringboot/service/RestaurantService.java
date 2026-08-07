@@ -85,5 +85,11 @@ public class RestaurantService {
 	    public List<Restaurant> getAllRestaurantsCustom() {
 	        return restaurantRepository.getAllRestaurantsCustom();
 	    }
+	    public List<Restaurant> getRestaurantByCityCustom(String city) {
+	        return restaurantRepository.getRestaurantByCityCustom(city);
+	    }
+	    public List<Restaurant> getRestaurantByCityAndRatingCustom(String city, double rating) {
+	        return restaurantRepository.getRestaurantByCityAndRatingCustom(city, rating);
+	    }
     
 }

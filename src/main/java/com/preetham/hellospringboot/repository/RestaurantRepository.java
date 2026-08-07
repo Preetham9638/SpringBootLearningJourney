@@ -1,5 +1,6 @@
 package com.preetham.hellospringboot.repository;
 import java.util.List;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.Query;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,5 +21,11 @@ public interface RestaurantRepository
 	List<Restaurant> findByNameEndingWith(String suffix);
 	@Query("SELECT r FROM Restaurant r")
 	List<Restaurant> getAllRestaurantsCustom();
+	@Query("SELECT r FROM Restaurant r WHERE r.city = :city")
+	List<Restaurant> getRestaurantByCityCustom(@Param("city") String city);
+	@Query("SELECT r FROM Restaurant r WHERE r.city = :city AND r.rating > :rating")
+	List<Restaurant> getRestaurantByCityAndRatingCustom(
+	        @Param("city") String city,
+	        @Param("rating") double rating);
 
 }
