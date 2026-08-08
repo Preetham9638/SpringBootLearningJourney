@@ -153,4 +153,18 @@ public class RestaurantController {
 
         return restaurantService.getRestaurantByCityAndRatingCustom(city, rating);
     }
+    @GetMapping("/custom/sort/rating")
+    public List<Restaurant> getRestaurantsSortedByRatingCustom() {
+        return restaurantService.getRestaurantsSortedByRatingCustom();
+    }
+    @GetMapping("/custom/sort/rating/asc")
+    public List<Restaurant> getRestaurantsSortedByRatingAscending() {
+        return restaurantService.getRestaurantsSortedByRatingAscending();
+    }
+    @GetMapping("/custom/city/sort/{city}")
+    public List<Restaurant> getRestaurantsByCitySortedByRating(
+            @PathVariable String city) {
+
+        return restaurantService.getRestaurantsByCitySortedByRating(city);
+    }
 }

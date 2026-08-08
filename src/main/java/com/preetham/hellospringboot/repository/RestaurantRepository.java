@@ -27,5 +27,11 @@ public interface RestaurantRepository
 	List<Restaurant> getRestaurantByCityAndRatingCustom(
 	        @Param("city") String city,
 	        @Param("rating") double rating);
+	@Query("SELECT r FROM Restaurant r ORDER BY r.rating DESC")
+	List<Restaurant> getRestaurantsSortedByRatingCustom();
+	@Query("SELECT r FROM Restaurant r ORDER BY r.rating ASC")
+	List<Restaurant> getRestaurantsSortedByRatingAscending();
+	@Query("SELECT r FROM Restaurant r WHERE r.city = :city ORDER BY r.rating DESC")
+	List<Restaurant> getRestaurantsByCitySortedByRating(@Param("city") String city);
 
 }

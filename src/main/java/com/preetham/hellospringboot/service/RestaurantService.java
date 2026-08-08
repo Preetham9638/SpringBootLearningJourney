@@ -91,5 +91,14 @@ public class RestaurantService {
 	    public List<Restaurant> getRestaurantByCityAndRatingCustom(String city, double rating) {
 	        return restaurantRepository.getRestaurantByCityAndRatingCustom(city, rating);
 	    }
+	    public List<Restaurant> getRestaurantsSortedByRatingCustom() {
+	        return restaurantRepository.getRestaurantsSortedByRatingCustom();
+	    }
+	    public List<Restaurant> getRestaurantsSortedByRatingAscending() {
+	        return restaurantRepository.getRestaurantsSortedByRatingAscending();
+	    }
+	    public List<Restaurant> getRestaurantsByCitySortedByRating(String city) {
+	        return restaurantRepository.getRestaurantsByCitySortedByRating(city);
+	    }
     
 }
