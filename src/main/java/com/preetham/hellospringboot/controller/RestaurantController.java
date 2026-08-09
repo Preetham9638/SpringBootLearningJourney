@@ -167,4 +167,8 @@ public class RestaurantController {
 
         return restaurantService.getRestaurantsByCitySortedByRating(city);
     }
+    @GetMapping("/custom/name-rating")
+    public List<Object[]> getRestaurantNameAndRating() {
+        return restaurantService.getRestaurantNameAndRating();
+    }
 }

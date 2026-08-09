@@ -100,5 +100,8 @@ public class RestaurantService {
 	    public List<Restaurant> getRestaurantsByCitySortedByRating(String city) {
 	        return restaurantRepository.getRestaurantsByCitySortedByRating(city);
 	    }
+	    public List<Object[]> getRestaurantNameAndRating() {
+	        return restaurantRepository.getRestaurantNameAndRating();
+	    }
     
 }

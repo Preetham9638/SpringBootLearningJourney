@@ -33,5 +33,7 @@ public interface RestaurantRepository
 	List<Restaurant> getRestaurantsSortedByRatingAscending();
 	@Query("SELECT r FROM Restaurant r WHERE r.city = :city ORDER BY r.rating DESC")
 	List<Restaurant> getRestaurantsByCitySortedByRating(@Param("city") String city);
+	@Query("SELECT r.name, r.rating FROM Restaurant r")
+	List<Object[]> getRestaurantNameAndRating();
 
 }
