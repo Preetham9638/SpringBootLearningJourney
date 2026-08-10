@@ -1,5 +1,6 @@
 package com.preetham.hellospringboot.repository;
 import java.util.List;
+import com.preetham.hellospringboot.model.RestaurantDTO;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.Query;
 
@@ -33,7 +34,7 @@ public interface RestaurantRepository
 	List<Restaurant> getRestaurantsSortedByRatingAscending();
 	@Query("SELECT r FROM Restaurant r WHERE r.city = :city ORDER BY r.rating DESC")
 	List<Restaurant> getRestaurantsByCitySortedByRating(@Param("city") String city);
-	@Query("SELECT r.name, r.rating FROM Restaurant r")
-	List<Object[]> getRestaurantNameAndRating();
+	@Query("SELECT new com.preetham.hellospringboot.model.RestaurantDTO(r.name, r.rating) FROM Restaurant r")
+	List<RestaurantDTO> getRestaurantNameAndRating();
 
 }

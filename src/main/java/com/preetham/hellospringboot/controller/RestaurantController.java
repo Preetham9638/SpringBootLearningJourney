@@ -1,5 +1,6 @@
 package com.preetham.hellospringboot.controller;
 import com.preetham.hellospringboot.service.RestaurantService;
+import com.preetham.hellospringboot.model.RestaurantDTO;
 import org.springframework.data.domain.Page;
 import java.util.List;
 import java.util.Optional;
@@ -168,7 +169,7 @@ public class RestaurantController {
         return restaurantService.getRestaurantsByCitySortedByRating(city);
     }
     @GetMapping("/custom/name-rating")
-    public List<Object[]> getRestaurantNameAndRating() {
+    public List<RestaurantDTO> getRestaurantNameAndRating() {
         return restaurantService.getRestaurantNameAndRating();
     }
 }

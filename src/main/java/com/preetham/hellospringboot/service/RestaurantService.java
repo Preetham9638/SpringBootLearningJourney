@@ -10,7 +10,7 @@ import java.util.Optional;
 import com.preetham.hellospringboot.repository.RestaurantRepository;
 
 import com.preetham.hellospringboot.model.Restaurant;
-
+import com.preetham.hellospringboot.model.RestaurantDTO;
 @Service
 public class RestaurantService {
 	 private final RestaurantRepository restaurantRepository;
@@ -100,8 +100,7 @@ public class RestaurantService {
 	    public List<Restaurant> getRestaurantsByCitySortedByRating(String city) {
 	        return restaurantRepository.getRestaurantsByCitySortedByRating(city);
 	    }
-	    public List<Object[]> getRestaurantNameAndRating() {
+	    public List<RestaurantDTO> getRestaurantNameAndRating() {
 	        return restaurantRepository.getRestaurantNameAndRating();
-	    }
-    
+	    }    
 }
