@@ -1,6 +1,8 @@
 package com.preetham.hellospringboot.service;
 
+
 import org.springframework.stereotype.Service;
+import com.preetham.hellospringboot.model.RestaurantView;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
@@ -102,5 +104,8 @@ public class RestaurantService {
 	    }
 	    public List<RestaurantDTO> getRestaurantNameAndRating() {
 	        return restaurantRepository.getRestaurantNameAndRating();
-	    }    
+	    }
+	    public List<RestaurantView> getRestaurantNameAndRatingView() {
+	        return restaurantRepository.getRestaurantNameAndRatingView();
+	    }
 }
