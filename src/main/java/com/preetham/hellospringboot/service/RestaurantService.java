@@ -8,8 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import java.util.List;
-import java.util.Optional;
+
 import com.preetham.hellospringboot.repository.RestaurantRepository;
+import com.preetham.hellospringboot.exception.RestaurantNotFoundException;
 
 import com.preetham.hellospringboot.model.Restaurant;
 import com.preetham.hellospringboot.model.RestaurantDTO;
@@ -42,8 +43,12 @@ public class RestaurantService {
 	        return restaurantRepository.findAll();
 	    }
 
-	    public Optional<Restaurant> getRestaurantById(int id) {
-	        return restaurantRepository.findById(id);
+	    public Restaurant getRestaurantById(int id) {
+
+	        return restaurantRepository.findById(id)
+	                .orElseThrow(() -> new RestaurantNotFoundException(
+	                        "Restaurant not found with id: " + id
+	                ));
 	    }
 	    public List<Restaurant> getRestaurantByCity(String city) {
 	        return restaurantRepository.findByCity(city);

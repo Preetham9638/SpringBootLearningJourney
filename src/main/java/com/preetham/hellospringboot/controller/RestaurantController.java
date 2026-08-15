@@ -74,7 +74,7 @@ public class RestaurantController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Restaurant> getRestaurantById(@PathVariable int id) {
+    public Restaurant getRestaurantById(@PathVariable int id) {
         return restaurantService.getRestaurantById(id);
     }
     @GetMapping("/city/{city}")
